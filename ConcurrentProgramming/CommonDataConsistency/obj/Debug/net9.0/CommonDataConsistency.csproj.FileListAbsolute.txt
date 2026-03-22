@@ -1,0 +1,12 @@
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\bin\Debug\net9.0\TP.ConcurrentProgramming.CommonDataConsistency.deps.json
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\bin\Debug\net9.0\TP.ConcurrentProgramming.CommonDataConsistency.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\bin\Debug\net9.0\TP.ConcurrentProgramming.CommonDataConsistency.pdb
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\CommonDataConsistency.csproj.AssemblyReference.cache
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\CommonDataConsistency.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\CommonDataConsistency.AssemblyInfoInputs.cache
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\CommonDataConsistency.AssemblyInfo.cs
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\CommonDataConsistency.csproj.CoreCompileInputs.cache
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\TP.ConcurrentProgramming.CommonDataConsistency.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\refint\TP.ConcurrentProgramming.CommonDataConsistency.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\TP.ConcurrentProgramming.CommonDataConsistency.pdb
+C:\Users\jmatu\Desktop\ConcurrentProgramming\CommonDataConsistency\obj\Debug\net9.0\ref\TP.ConcurrentProgramming.CommonDataConsistency.dll

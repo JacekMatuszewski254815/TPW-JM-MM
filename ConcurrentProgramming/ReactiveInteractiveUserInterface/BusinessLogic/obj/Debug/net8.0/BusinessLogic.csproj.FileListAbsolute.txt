@@ -1,0 +1,46 @@
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.deps.json
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.pdb
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\DataLayer.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\DataLayer.pdb
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\refint\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.pdb
+C:\Users\jmatu\Desktop\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\ref\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.deps.json
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.pdb
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\DataLayer.dll
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\DataLayer.pdb
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\refint\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.pdb
+C:\Users\jmatu\Desktop\mpostol TP master ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\ref\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.deps.json
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.pdb
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\DataLayer.dll
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\bin\Debug\net8.0\DataLayer.pdb
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\BusinessLogic.sourcelink.json
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\Business.CF5D6E35.Up2Date
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\refint\TP.ConcurrentProgramming.BusinessLogic.dll
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\TP.ConcurrentProgramming.BusinessLogic.pdb
+C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\BusinessLogic\obj\Debug\net8.0\ref\TP.ConcurrentProgramming.BusinessLogic.dll
