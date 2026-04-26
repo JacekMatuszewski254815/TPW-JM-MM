@@ -41,8 +41,7 @@
         },
         "runtime": {
           "DataLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -53,8 +52,7 @@
         },
         "runtime": {
           "TP.ConcurrentProgramming.BusinessLogic.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -66,8 +64,7 @@
         },
         "runtime": {
           "TP.ConcurrentProgramming.PresentationModel.dll": {
-            "assemblyVersion": "4.3.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -78,8 +75,7 @@
         },
         "runtime": {
           "TP.ConcurrentProgramming.PresentationViewModel.dll": {
-            "assemblyVersion": "4.2.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },

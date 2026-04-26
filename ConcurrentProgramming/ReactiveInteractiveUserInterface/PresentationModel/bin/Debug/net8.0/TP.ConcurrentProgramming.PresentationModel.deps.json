@@ -40,8 +40,7 @@
         },
         "runtime": {
           "DataLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -52,8 +51,7 @@
         },
         "runtime": {
           "TP.ConcurrentProgramming.BusinessLogic.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },

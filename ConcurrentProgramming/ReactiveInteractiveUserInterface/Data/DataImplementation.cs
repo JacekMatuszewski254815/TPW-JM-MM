@@ -29,14 +29,16 @@ namespace TP.ConcurrentProgramming.Data
     public override void Start(int numberOfBalls, Action<IVector, IBall> upperLayerHandler)
     {
       if (Disposed)
-        throw new ObjectDisposedException(nameof(DataImplementation));
+                throw new ObjectDisposedException(nameof(DataImplementation));
       if (upperLayerHandler == null)
         throw new ArgumentNullException(nameof(upperLayerHandler));
       Random random = new Random();
       for (int i = 0; i < numberOfBalls; i++)
       {
         Vector startingPosition = new(random.Next(100, 400 - 100), random.Next(100, 400 - 100));
-        Ball newBall = new(startingPosition, startingPosition);
+
+        Vector initialVelocity = new((random.NextDouble() - 0.5) * 2, (random.NextDouble() - 0.5) * 2);
+        Ball newBall = new(startingPosition, initialVelocity);
         upperLayerHandler(startingPosition, newBall);
         BallsList.Add(newBall);
       }
@@ -72,6 +74,17 @@ namespace TP.ConcurrentProgramming.Data
 
     #region private
 
+    private const double BallRadius = 10;
+    private const double BallDiameter = 20;
+    private const double CanvasWidth = 400;
+    private const double CanvasHeight = 420;
+
+    // Granice dla centrum piłki
+    private const double BoundaryMinX = BallRadius;
+    private const double BoundaryMaxX = 382;
+    private const double BoundaryMinY = BallRadius;
+    private const double BoundaryMaxY = 402;
+
     //private bool disposedValue;
     private bool Disposed = false;
 
@@ -82,7 +95,39 @@ namespace TP.ConcurrentProgramming.Data
     private void Move(object? x)
     {
       foreach (Ball item in BallsList)
-        item.Move(new Vector((RandomGenerator.NextDouble() - 0.5) * 10, (RandomGenerator.NextDouble() - 0.5) * 10));
+      {
+        // Oblicz nową pozycję
+        double newX = item.Position.x + item.Velocity.x;
+        double newY = item.Position.y + item.Velocity.y;
+
+        // Odbij piłkę jeśli przekroczyłaby granicę
+        // Dla osi X
+        if (newX < BoundaryMinX)
+        {
+          newX = BoundaryMinX - (newX - BoundaryMinX);
+          item.Velocity = new Vector(-item.Velocity.x, item.Velocity.y);
+        }
+        if (newX > BoundaryMaxX)
+        {
+          newX = BoundaryMaxX - (newX - BoundaryMaxX);
+          item.Velocity = new Vector(-item.Velocity.x, item.Velocity.y);
+        }
+
+        // Dla osi Y
+        if (newY < BoundaryMinY)
+        {
+          newY = BoundaryMinY - (newY - BoundaryMinY);
+          item.Velocity = new Vector(item.Velocity.x, -item.Velocity.y);
+        }
+        if (newY > BoundaryMaxY)
+        {
+          newY = BoundaryMaxY - (newY - BoundaryMaxY);
+          item.Velocity = new Vector(item.Velocity.x, -item.Velocity.y);
+        }
+
+        // Przesunięcie piłki
+        item.Move(new Vector(newX - item.Position.x, newY - item.Position.y));
+      }
     }
 
     #endregion private

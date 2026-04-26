@@ -35,3 +35,16 @@ C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveU
 C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\refint\DataLayer.dll
 C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\DataLayer.pdb
 C:\Users\jmatu\source\repos\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\ref\DataLayer.dll
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\bin\Debug\net8.0\DataLayer.deps.json
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\bin\Debug\net8.0\DataLayer.dll
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\bin\Debug\net8.0\DataLayer.pdb
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\Data.csproj.AssemblyReference.cache
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\Data.AssemblyInfoInputs.cache
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\Data.AssemblyInfo.cs
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\Data.sourcelink.json
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\DataLayer.dll
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\refint\DataLayer.dll
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\DataLayer.pdb
+C:\Users\Mieszko\source\repos\JacekMatuszewski254815\TPW-JM-MM\ConcurrentProgramming\ReactiveInteractiveUserInterface\Data\obj\Debug\net8.0\ref\DataLayer.dll
