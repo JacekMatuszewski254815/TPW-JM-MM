@@ -1,49 +1,26 @@
-﻿//__________________________________________________________________________________________
-//
-//  Copyright 2024 Mariusz Postol LODZ POLAND.
-//
-//  To be in touch join the community by pressing the `Watch` button and to get started
-//  comment using the discussion panel at
-//  https://github.com/mpostol/TP/discussions/182
-//__________________________________________________________________________________________
-
-using System;
+﻿using System;
 using System.ComponentModel;
 
 namespace TP.ConcurrentProgramming.Presentation.Model
 {
-  public interface IBall : INotifyPropertyChanged
-  {
-    double Top { get; }
-    double Left { get; }
-    double Diameter { get; }
-  }
-
-  public abstract class ModelAbstractApi : IObservable<IBall>, IDisposable
-  {
-    public static ModelAbstractApi CreateModel()
+    public interface IBall : INotifyPropertyChanged
     {
-      return modelInstance.Value;
+        double Top { get; }
+        double Left { get; }
+        double Diameter { get; }
     }
 
-    public abstract void Start(int numberOfBalls);
+    public abstract class ModelAbstractApi : IObservable<IBall>, IDisposable
+    {
+        public static ModelAbstractApi CreateModel()
+        {
+            return modelInstance.Value;
+        }
 
-    #region IObservable
+        public abstract void Start(int numberOfBalls);
+        public abstract IDisposable Subscribe(IObserver<IBall> observer);
+        public abstract void Dispose();
 
-    public abstract IDisposable Subscribe(IObserver<IBall> observer);
-
-    #endregion IObservable
-
-    #region IDisposable
-
-    public abstract void Dispose();
-
-    #endregion IDisposable
-
-    #region private
-
-    private static Lazy<ModelAbstractApi> modelInstance = new Lazy<ModelAbstractApi>(() => new ModelImplementation());
-
-    #endregion private
-  }
+        private static readonly Lazy<ModelAbstractApi> modelInstance = new Lazy<ModelAbstractApi>(() => new PresentationModel());
+    }
 }

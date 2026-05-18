@@ -1,50 +1,71 @@
-﻿//____________________________________________________________________________________________________________________________________
-//
-//  Copyright (C) 2024, Mariusz Postol LODZ POLAND.
-//
-//  To be in touch join the community by pressing the `Watch` button and get started commenting using the discussion panel at
-//
-//  https://github.com/mpostol/TP/discussions/182
-//
-//_____________________________________________________________________________________________________________________________________
+﻿using System;
+using System.Threading.Tasks;
 
 namespace TP.ConcurrentProgramming.Data
 {
-  internal class Ball : IBall
-  {
-    #region ctor
-
-    internal Ball(Vector initialPosition, Vector initialVelocity)
+    public interface IBall : IDisposable
     {
-      Position = initialPosition;
-      Velocity = initialVelocity;
+        event EventHandler<IVector>? NewPositionNotification;
+        IVector Position { get; set; }
+        IVector Velocity { get; set; }
+        double Mass { get; }
+        double Radius { get; }
     }
 
-    #endregion ctor
-
-    #region IBall
-
-    public event EventHandler<IVector>? NewPositionNotification;
-
-    public IVector Position { get; private set; }
-
-    public IVector Velocity { get; set; }
-
-    #endregion IBall
-
-    #region private
-
-    private void RaiseNewPositionChangeNotification()
+    internal class Ball : IBall
     {
-      NewPositionNotification?.Invoke(this, Position);
-    }
+        private bool _isRunning = true;
+        private Task _movementTask;
+        private readonly object _lockObject = new object();
+        private IVector _position;
+        private IVector _velocity;
 
-    internal void Move(Vector delta)
-    {
-      Position = new Vector(Position.x + delta.x, Position.y + delta.y);
-      RaiseNewPositionChangeNotification();
-    }
+        internal Ball(Vector initialPosition, Vector initialVelocity, double mass, double radius)
+        {
+            _position = initialPosition;
+            _velocity = initialVelocity;
+            Mass = mass;
+            Radius = radius;
 
-    #endregion private
-  }
+            _movementTask = Task.Run(MoveLoop);
+        }
+
+        public event EventHandler<IVector>? NewPositionNotification;
+
+        public IVector Position
+        {
+            get { lock (_lockObject) return _position; }
+            set { lock (_lockObject) _position = value; }
+        }
+
+        public IVector Velocity
+        {
+            get { lock (_lockObject) return _velocity; }
+            set { lock (_lockObject) _velocity = value; }
+        }
+
+        public double Mass { get; init; }
+        public double Radius { get; init; }
+
+        private async Task MoveLoop()
+        {
+            while (_isRunning)
+            {
+                lock (_lockObject)
+                {
+                    _position = new Vector(_position.x + _velocity.x, _position.y + _velocity.y);
+                }
+
+                NewPositionNotification?.Invoke(this, Position);
+
+                await Task.Delay(16);
+            }
+        }
+
+        public void Dispose()
+        {
+            _isRunning = false;
+            try { _movementTask.Wait(); } catch { }
+        }
+    }
 }

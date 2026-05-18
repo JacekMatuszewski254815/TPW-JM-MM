@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj": {}
+    "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj": {
+    "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj",
+        "projectUniqueName": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj",
         "projectName": "DataTest",
-        "projectPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj",
-        "packagesPath": "C:\\Users\\Mieszko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\obj\\",
+        "projectPath": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj",
+        "packagesPath": "C:\\Users\\jmatu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mieszko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jmatu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,16 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj"
+              "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj"
               }
             }
           }
@@ -50,11 +48,10 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "MSTest.TestAdapter": {
@@ -96,24 +93,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj": {
+    "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\Mieszko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\obj\\",
+        "projectPath": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\jmatu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mieszko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jmatu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -122,12 +119,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -142,11 +137,10 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Newtonsoft.Json": {
@@ -170,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

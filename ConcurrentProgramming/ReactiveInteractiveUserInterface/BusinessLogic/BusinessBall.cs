@@ -1,35 +1,38 @@
-﻿//____________________________________________________________________________________________________________________________________
-//
-//  Copyright (C) 2024, Mariusz Postol LODZ POLAND.
-//
-//  To be in touch join the community by pressing the `Watch` button and get started commenting using the discussion panel at
-//
-//  https://github.com/mpostol/TP/discussions/182
-//
-//_____________________________________________________________________________________________________________________________________
+﻿using System;
+using TP.ConcurrentProgramming.Data;
 
 namespace TP.ConcurrentProgramming.BusinessLogic
 {
-  internal class Ball : IBall
-  {
-    public Ball(Data.IBall ball)
+    public interface IBall : IDisposable
     {
-      ball.NewPositionNotification += RaisePositionChangeEvent;
+        event EventHandler<IPosition>? NewPositionNotification;
+        IPosition Position { get; }
+        double Radius { get; }
     }
 
-    #region IBall
-
-    public event EventHandler<IPosition>? NewPositionNotification;
-
-    #endregion IBall
-
-    #region private
-
-    private void RaisePositionChangeEvent(object? sender, Data.IVector e)
+    internal class BusinessBall : IBall
     {
-      NewPositionNotification?.Invoke(this, new Position(e.x, e.y));
-    }
+        internal Data.IBall DataBallReference { get; }
 
-    #endregion private
-  }
+        public BusinessBall(Data.IBall dataBall)
+        {
+            DataBallReference = dataBall;
+            DataBallReference.NewPositionNotification += OnDataBallPositionChanged;
+        }
+
+        public event EventHandler<IPosition>? NewPositionNotification;
+
+        public IPosition Position => new Position(DataBallReference.Position.x, DataBallReference.Position.y);
+        public double Radius => DataBallReference.Radius;
+
+        private void OnDataBallPositionChanged(object? sender, IVector e)
+        {
+            NewPositionNotification?.Invoke(this, new Position(e.x, e.y));
+        }
+
+        public void Dispose()
+        {
+            DataBallReference.NewPositionNotification -= OnDataBallPositionChanged;
+        }
+    }
 }

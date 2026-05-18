@@ -1,6 +1,43 @@
 ﻿################################################################################
-# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+# Oficjalny plik .gitignore dla Visual Studio i .NET
 ################################################################################
 
-/.vs
-/ConcurrentProgramming/.vs/ConcurrentProgramming
+## --- Efekty kompilacji (W tym pliki .cache, .dll, .exe, .pdb) ---
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Re]leases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bbin/
+bin/
+obj/
+Log/
+Logs/
+
+## --- Pliki pamięci podręcznej i diagnostyki (Cache) ---
+*.cache
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## --- Specyficzne foldery Visual Studio ---
+.vs/
+[Cc]oncurrent[Pp]rogramming/.vs/
+
+## --- Pakiety NuGet i narzędzia ---
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+packages/
+
+## --- Pliki systemowe i tymczasowe ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp

@@ -1,157 +1,41 @@
-﻿//____________________________________________________________________________________________________________________________________
-//
-//  Copyright (C) 2024, Mariusz Postol LODZ POLAND.
-//
-//  To be in touch join the community by pressing the `Watch` button and get started commenting using the discussion panel at
-//
-//  https://github.com/mpostol/TP/discussions/182
-//
-//_____________________________________________________________________________________________________________________________________
-
-using System;
-using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TP.ConcurrentProgramming.Data
 {
-  internal class DataImplementation : DataAbstractAPI
-  {
-    #region ctor
-
-    public DataImplementation()
+    internal class DataImplementation : DataAbstractAPI
     {
-      MoveTimer = new Timer(Move, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(100));
-    }
+        private readonly List<IBall> _balls = new List<IBall>();
+        private readonly Random _random = new Random();
 
-    #endregion ctor
-
-    #region DataAbstractAPI
-
-    public override void Start(int numberOfBalls, Action<IVector, IBall> upperLayerHandler)
-    {
-      if (Disposed)
-                throw new ObjectDisposedException(nameof(DataImplementation));
-      if (upperLayerHandler == null)
-        throw new ArgumentNullException(nameof(upperLayerHandler));
-      Random random = new Random();
-      for (int i = 0; i < numberOfBalls; i++)
-      {
-        Vector startingPosition = new(random.Next(100, 400 - 100), random.Next(100, 400 - 100));
-
-        Vector initialVelocity = new((random.NextDouble() - 0.5) * 2, (random.NextDouble() - 0.5) * 2);
-        Ball newBall = new(startingPosition, initialVelocity);
-        upperLayerHandler(startingPosition, newBall);
-        BallsList.Add(newBall);
-      }
-    }
-
-    #endregion DataAbstractAPI
-
-    #region IDisposable
-
-    protected virtual void Dispose(bool disposing)
-    {
-      if (!Disposed)
-      {
-        if (disposing)
+        public override void CreateBoard(int width, int height, int ballsCount)
         {
-          MoveTimer.Dispose();
-          BallsList.Clear();
-        }
-        Disposed = true;
-      }
-      else
-        throw new ObjectDisposedException(nameof(DataImplementation));
-    }
+            double radius = 10.0;
+            double mass = 5.0;
 
-    public override void Dispose()
-    {
-      // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-      Dispose(disposing: true);
-      GC.SuppressFinalize(this);
-    }
+            for (int i = 0; i < ballsCount; i++)
+            {
+                double x = _random.NextDouble() * (width - 2 * radius) + radius;
+                double y = _random.NextDouble() * (height - 2 * radius) + radius;
+                double vx = (_random.NextDouble() * 2 - 1) * 3;
+                double vy = (_random.NextDouble() * 2 - 1) * 3;
 
-    #endregion IDisposable
-
-    #region private
-
-    private const double BallRadius = 10;
-    private const double BallDiameter = 20;
-    private const double CanvasWidth = 400;
-    private const double CanvasHeight = 420;
-
-    // Granice dla centrum piłki
-    private const double BoundaryMinX = BallRadius;
-    private const double BoundaryMaxX = 382;
-    private const double BoundaryMinY = BallRadius;
-    private const double BoundaryMaxY = 402;
-
-    //private bool disposedValue;
-    private bool Disposed = false;
-
-    private readonly Timer MoveTimer;
-    private Random RandomGenerator = new();
-    private List<Ball> BallsList = [];
-
-    private void Move(object? x)
-    {
-      foreach (Ball item in BallsList)
-      {
-        // Oblicz nową pozycję
-        double newX = item.Position.x + item.Velocity.x;
-        double newY = item.Position.y + item.Velocity.y;
-
-        // Odbij piłkę jeśli przekroczyłaby granicę
-        // Dla osi X
-        if (newX < BoundaryMinX)
-        {
-          newX = BoundaryMinX - (newX - BoundaryMinX);
-          item.Velocity = new Vector(-item.Velocity.x, item.Velocity.y);
-        }
-        if (newX > BoundaryMaxX)
-        {
-          newX = BoundaryMaxX - (newX - BoundaryMaxX);
-          item.Velocity = new Vector(-item.Velocity.x, item.Velocity.y);
+                _balls.Add(new Ball(new Vector(x, y), new Vector(vx, vy), mass, radius));
+            }
         }
 
-        // Dla osi Y
-        if (newY < BoundaryMinY)
+        public override IEnumerable<IBall> GetBalls()
         {
-          newY = BoundaryMinY - (newY - BoundaryMinY);
-          item.Velocity = new Vector(item.Velocity.x, -item.Velocity.y);
-        }
-        if (newY > BoundaryMaxY)
-        {
-          newY = BoundaryMaxY - (newY - BoundaryMaxY);
-          item.Velocity = new Vector(item.Velocity.x, -item.Velocity.y);
+            return _balls;
         }
 
-        // Przesunięcie piłki
-        item.Move(new Vector(newX - item.Position.x, newY - item.Position.y));
-      }
+        public override void Dispose()
+        {
+            foreach (var ball in _balls)
+            {
+                ball.Dispose();
+            }
+            _balls.Clear();
+        }
     }
-
-    #endregion private
-
-    #region TestingInfrastructure
-
-    [Conditional("DEBUG")]
-    internal void CheckBallsList(Action<IEnumerable<IBall>> returnBallsList)
-    {
-      returnBallsList(BallsList);
-    }
-
-    [Conditional("DEBUG")]
-    internal void CheckNumberOfBalls(Action<int> returnNumberOfBalls)
-    {
-      returnNumberOfBalls(BallsList.Count);
-    }
-
-    [Conditional("DEBUG")]
-    internal void CheckObjectDisposed(Action<bool> returnInstanceDisposed)
-    {
-      returnInstanceDisposed(Disposed);
-    }
-
-    #endregion TestingInfrastructure
-  }
 }
