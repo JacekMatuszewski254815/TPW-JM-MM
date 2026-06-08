@@ -85,6 +85,13 @@ namespace TP.ConcurrentProgramming.BusinessLogic.Test
                 public double Radius => 10.0;
                 public event EventHandler<Data.IVector>? NewPositionNotification;
                 public void RaiseNewPosition() => NewPositionNotification?.Invoke(this, Position);
+                public void UpdatePosition(double deltaTime) 
+                { 
+                    Position = new Data.Vector(
+                        Position.x + Velocity.x * deltaTime,
+                        Position.y + Velocity.y * deltaTime
+                    );
+                }
                 public void Dispose() { }
             }
         }

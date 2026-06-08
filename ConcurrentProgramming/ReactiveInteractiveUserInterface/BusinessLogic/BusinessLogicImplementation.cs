@@ -12,6 +12,8 @@ namespace TP.ConcurrentProgramming.BusinessLogic
         private IBallDiagnosticsLogger _diagnosticsLogger;
         private int _ballIdCounter = 0;
         private readonly Dictionary<IBall, int> _ballToIdMapping = new Dictionary<IBall, int>();
+        private ITimerService _timerService;
+        private IDisposable _timerSubscription;
 
         private int _boardWidth;
         private int _boardHeight;
@@ -27,6 +29,11 @@ namespace TP.ConcurrentProgramming.BusinessLogic
             _boardHeight = height;
 
             _dataApi.CreateBoard(width, height, ballsCount);
+
+            // Inicjalizuj ReactiveTimerService dla programowania czasu rzeczywistego
+            _timerService = new TimerService();
+            _timerSubscription = _timerService.Subscribe(new ReactiveBallUpdateObserver(this));
+
             foreach (var dataBall in _dataApi.GetBalls())
             {
                 var bBall = new BusinessBall(dataBall);
@@ -35,6 +42,9 @@ namespace TP.ConcurrentProgramming.BusinessLogic
 
                 dataBall.NewPositionNotification += (sender, position) => OnBallMoved((BusinessBall)bBall);
             }
+
+            // Uruchom serwis czasu dla animacji
+            _timerService.Start();
         }
 
         private void OnBallMoved(BusinessBall currentBall)
@@ -138,6 +148,8 @@ namespace TP.ConcurrentProgramming.BusinessLogic
 
         public override void Dispose()
         {
+            _timerSubscription?.Dispose();
+            _timerService?.Dispose();
             DisableDiagnostics();
             foreach (var ball in _businessBalls) ball.Dispose();
             _businessBalls.Clear();
