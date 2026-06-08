@@ -9,6 +9,9 @@ namespace TP.ConcurrentProgramming.BusinessLogic
         private readonly DataAbstractAPI _dataApi;
         private readonly List<IBall> _businessBalls = new List<IBall>();
         private readonly object _collisionLock = new object(); //sekcja krytyczna
+        private IBallDiagnosticsLogger _diagnosticsLogger;
+        private int _ballIdCounter = 0;
+        private readonly Dictionary<IBall, int> _ballToIdMapping = new Dictionary<IBall, int>();
 
         private int _boardWidth;
         private int _boardHeight;
@@ -28,6 +31,7 @@ namespace TP.ConcurrentProgramming.BusinessLogic
             {
                 var bBall = new BusinessBall(dataBall);
                 _businessBalls.Add(bBall);
+                _ballToIdMapping[bBall] = _ballIdCounter++;
 
                 dataBall.NewPositionNotification += (sender, position) => OnBallMoved((BusinessBall)bBall);
             }
@@ -39,6 +43,22 @@ namespace TP.ConcurrentProgramming.BusinessLogic
             {
                 CheckWallCollisions(currentBall);
                 CheckBallCollisions(currentBall);
+            }
+
+            // Log ball state diagnostics
+            if (_diagnosticsLogger != null && _ballToIdMapping.TryGetValue(currentBall, out int ballId))
+            {
+                var position = currentBall.DataBallReference.Position;
+                var velocity = currentBall.DataBallReference.Velocity;
+                _diagnosticsLogger.LogBallState(
+                    ballId,
+                    position.x,
+                    position.y,
+                    velocity.x,
+                    velocity.y,
+                    currentBall.DataBallReference.Mass,
+                    currentBall.Radius
+                );
             }
         }
 
@@ -105,10 +125,23 @@ namespace TP.ConcurrentProgramming.BusinessLogic
 
         public override IEnumerable<IBall> GetBalls() => _businessBalls;
 
+        public override void EnableDiagnostics(string filePath = null, int bufferSize = 100)
+        {
+            _diagnosticsLogger = new BallDiagnosticsLogger(filePath, bufferSize);
+        }
+
+        public override void DisableDiagnostics()
+        {
+            _diagnosticsLogger?.Dispose();
+            _diagnosticsLogger = null;
+        }
+
         public override void Dispose()
         {
+            DisableDiagnostics();
             foreach (var ball in _businessBalls) ball.Dispose();
             _businessBalls.Clear();
+            _ballToIdMapping.Clear();
             _dataApi.Dispose();
         }
     }
