@@ -12,7 +12,7 @@ namespace TP.ConcurrentProgramming.Data
     /// - Delta time jest obliczany jako różnica między bieżącym a poprzednim pomiarem
     /// - Wszystkie pomiary są thread-safe dzięki wewnętrznym lock'om Stopwatch
     /// </summary>
-    internal class SystemTimingProvider : ITimingProvider
+    public class SystemTimingProvider : ITimingProvider
     {
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private double _lastDeltaTime = 0;
