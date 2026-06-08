@@ -10,10 +10,6 @@ namespace TP.ConcurrentProgramming.Data
         IVector Velocity { get; set; }
         double Mass { get; }
         double Radius { get; }
-        /// <summary>
-        /// Zmiana pozycji z uwzględnieniem delta time.
-        /// PROGRAMOWANIE CZASU RZECZYWISTEGO: position += velocity * delta_time
-        /// </summary>
         void UpdatePosition(double deltaTime);
     }
 
@@ -21,7 +17,7 @@ namespace TP.ConcurrentProgramming.Data
     {
         private bool _isRunning = true;
         private Task _movementTask;
-        private readonly object _lockObject = new object(); // SEKCJA KRYTYCZNA
+        private readonly object _lockObject = new object();
         private IVector _position;
         private IVector _velocity;
         private ITimerService _timerService;
@@ -34,14 +30,9 @@ namespace TP.ConcurrentProgramming.Data
             Mass = mass;
             Radius = radius;
 
-            // Użyj domyślnego TimerService dla tego worka
             _timerService = new TimerService();
         }
 
-        /// <summary>
-        /// Wersja z wstrzyknięciem TimerService (dla testów).
-        /// Umożliwia DI i testowanie z mock'owanym TimerService.
-        /// </summary>
         internal Ball(Vector initialPosition, Vector initialVelocity, double mass, double radius, ITimerService timerService)
         {
             _position = initialPosition;
@@ -68,15 +59,6 @@ namespace TP.ConcurrentProgramming.Data
         public double Mass { get; init; }
         public double Radius { get; init; }
 
-        /// <summary>
-        /// Aktualizuje pozycję kuli z uwzględnieniem delta time.
-        /// WZÓR CZASU RZECZYWISTEGO:
-        /// new_position = current_position + velocity * delta_time
-        /// 
-        /// SEKCJA KRYTYCZNA:
-        /// Dostęp do _position i _velocity jest chroniony lock'iem.
-        /// Zapobiega race conditions w wielowątkowych scenariuszach.
-        /// </summary>
         public void UpdatePosition(double deltaTime)
         {
             if (deltaTime <= 0)

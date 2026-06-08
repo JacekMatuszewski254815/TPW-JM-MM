@@ -5,34 +5,12 @@ using System.Threading.Tasks;
 
 namespace TP.ConcurrentProgramming.Data
 {
-    /// <summary>
-    /// Reaktywny serwis czasu.
-    /// Emituje zdarzenia czasowe do wszystkich zarejestrowanych obserwatorów.
-    /// 
-    /// PROGRAMOWANIE REAKTYWNE + WSPÓŁBIEŻNE:
-    /// - Observable pattern: Many-to-One (jeden serwis, wielu obserwatorów)
-    /// - Thread-safe: sekcje krytyczne chronią listę obserwatorów
-    /// - Asynchroniczny flow: emitowanie zdarzeń w tle
-    /// 
-    /// SEKCJE KRYTYCZNE:
-    /// - _observersLock: chronizes access to _observers list
-    /// - Zapobiega race conditions gdy obserwatorzy się dołączają/odłączają
-    /// </summary>
     public interface ITimerService : IObservable<TimingData>, IDisposable
     {
-        /// <summary>
-        /// Uruchamia serwis czasu. Zaczyna emitować zdarzenia czasowe.
-        /// </summary>
         void Start();
 
-        /// <summary>
-        /// Zatrzymuje serwis czasu.
-        /// </summary>
         void Stop();
 
-        /// <summary>
-        /// Liczba aktualnie zarejestrowanych obserwatorów.
-        /// </summary>
         int ObserverCount { get; }
     }
 
@@ -40,17 +18,14 @@ namespace TP.ConcurrentProgramming.Data
     {
         private readonly ITimingProvider _timingProvider;
         private readonly List<IObserver<TimingData>> _observers = new List<IObserver<TimingData>>();
-        private readonly object _observersLock = new object(); // SEKCJA KRYTYCZNA
+        private readonly object _observersLock = new object();
         private Task _emitTask;
         private CancellationTokenSource _cancellationTokenSource;
         private bool _isRunning = false;
         private bool _isDisposed = false;
         private long _frameNumber = 0;
 
-        /// <summary>
-        /// Interwał między emitowaniem zdarzeń (w ms).
-        /// Domyślnie: 16ms ≈ 60 FPS
-        /// </summary>
+
         private const int EmitIntervalMs = 16;
 
         public int ObserverCount
@@ -101,7 +76,6 @@ namespace TP.ConcurrentProgramming.Data
                         _timingProvider.TotalElapsedTime
                     );
 
-                    // Emituj do wszystkich obserwatorów w sekcji krytycznej
                     List<IObserver<TimingData>> observersCopy;
                     lock (_observersLock)
                     {
@@ -125,7 +99,6 @@ namespace TP.ConcurrentProgramming.Data
             }
             catch (OperationCanceledException)
             {
-                // Oczekiwane przy zamykaniu
             }
             finally
             {

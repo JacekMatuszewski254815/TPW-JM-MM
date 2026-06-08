@@ -3,15 +3,7 @@ using System.Diagnostics;
 
 namespace TP.ConcurrentProgramming.Data
 {
-    /// <summary>
-    /// Implementacja ITimingProvider używająca System.Diagnostics.Stopwatch.
-    /// Zapewnia precyzyjny pomiar czasu rzeczywistego dla aplikacji.
-    /// 
-    /// UWAGI DOTYCZĄCE CZASU RZECZYWISTEGO:
-    /// - Stopwatch jest najdokładniejszą dostępną metodą pomiaru czasu w .NET
-    /// - Delta time jest obliczany jako różnica między bieżącym a poprzednim pomiarem
-    /// - Wszystkie pomiary są thread-safe dzięki wewnętrznym lock'om Stopwatch
-    /// </summary>
+
     public class SystemTimingProvider : ITimingProvider
     {
         private readonly Stopwatch _stopwatch = new Stopwatch();
@@ -52,8 +44,6 @@ namespace TP.ConcurrentProgramming.Data
             _frameCount++;
             _totalFrameTime += _lastDeltaTime;
 
-            // Ogranicze delta time do maksymalnie 1/30 sekundy (33ms)
-            // aby uniknąć dużych skoków w przypadku zatrzymania debuggera
             if (_lastDeltaTime > 1.0 / 30.0)
                 _lastDeltaTime = 1.0 / 30.0;
 

@@ -17,7 +17,6 @@ namespace TP.ConcurrentProgramming.Presentation.Model
 
         public override void Start(int numberOfBalls)
         {
-            // Włączenie diagnostyki logowania kul
             _layerBelow.EnableDiagnostics();
 
             _layerBelow.Start(395, 400, numberOfBalls);

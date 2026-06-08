@@ -30,7 +30,6 @@ namespace TP.ConcurrentProgramming.BusinessLogic
 
             _dataApi.CreateBoard(width, height, ballsCount);
 
-            // Inicjalizuj ReactiveTimerService dla programowania czasu rzeczywistego
             _timerService = new TimerService();
             _timerSubscription = _timerService.Subscribe(new ReactiveBallUpdateObserver(this));
 
@@ -43,7 +42,6 @@ namespace TP.ConcurrentProgramming.BusinessLogic
                 dataBall.NewPositionNotification += (sender, position) => OnBallMoved((BusinessBall)bBall);
             }
 
-            // Uruchom serwis czasu dla animacji
             _timerService.Start();
         }
 
@@ -55,7 +53,6 @@ namespace TP.ConcurrentProgramming.BusinessLogic
                 CheckBallCollisions(currentBall);
             }
 
-            // Log ball state diagnostics
             if (_diagnosticsLogger != null && _ballToIdMapping.TryGetValue(currentBall, out int ballId))
             {
                 var position = currentBall.DataBallReference.Position;

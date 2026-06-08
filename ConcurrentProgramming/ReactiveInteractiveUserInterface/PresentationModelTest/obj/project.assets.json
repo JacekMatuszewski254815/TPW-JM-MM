@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
     "net8.0": {
       "coverlet.collector/6.0.2": {
@@ -1793,23 +1793,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mieszko\\.nuget\\packages\\": {},
+    "C:\\Users\\jmatu\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\PresentationModelTest.csproj",
+      "projectUniqueName": "C:\\Users\\jmatu\\source\\repos\\oiahsdioas\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\PresentationModelTest.csproj",
       "projectName": "PresentationModelTest",
-      "projectPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\PresentationModelTest.csproj",
-      "packagesPath": "C:\\Users\\Mieszko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\obj\\",
+      "projectPath": "C:\\Users\\jmatu\\source\\repos\\oiahsdioas\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\PresentationModelTest.csproj",
+      "packagesPath": "C:\\Users\\jmatu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jmatu\\source\\repos\\oiahsdioas\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mieszko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jmatu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1818,16 +1818,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModel\\PresentationModel.csproj": {
-              "projectPath": "C:\\Users\\Mieszko\\source\\repos\\JacekMatuszewski254815\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModel\\PresentationModel.csproj"
+            "C:\\Users\\jmatu\\source\\repos\\oiahsdioas\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModel\\PresentationModel.csproj": {
+              "projectPath": "C:\\Users\\jmatu\\source\\repos\\oiahsdioas\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModel\\PresentationModel.csproj"
             }
           }
         }
@@ -1842,11 +1840,10 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.300"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
-        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "MSTest.TestAdapter": {
@@ -1888,7 +1885,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -37,7 +37,7 @@ namespace TP.ConcurrentProgramming.BusinessLogic
             if (filePath == null)
             {
                 string binDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string projectFolder = Path.GetFullPath(Path.Combine(binDirectory, "..", "..", ".."));
+                string projectFolder = Path.GetFullPath(Path.Combine(binDirectory, "..", "..", "..", "..", "..", "TestResults"));
                 filePath = Path.Combine(projectFolder, "ball_diagnostics.log");
             }
 
@@ -86,7 +86,6 @@ namespace TP.ConcurrentProgramming.BusinessLogic
                         velocityX, velocityY, mass, radius);
                     _writeQueue.Enqueue(serializedData);
 
-                    // Obsługa backpressure - jeśli buffer się przepełnia, czekamy na zapis
                     if (_writeQueue.Count >= _bufferSize)
                     {
                         Task.Delay(10).Wait();
@@ -125,12 +124,11 @@ namespace TP.ConcurrentProgramming.BusinessLogic
                     }
                 }
 
-                // Flush remaining items
                 await FlushAsync();
             }
             catch (OperationCanceledException)
             {
-                // Expected when shutting down
+
             }
             catch (Exception ex)
             {
@@ -198,7 +196,7 @@ namespace TP.ConcurrentProgramming.BusinessLogic
         private string SerializeBallState(int ballId, double positionX, double positionY,
             double velocityX, double velocityY, double mass, double radius)
         {
-            string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            string timestamp = DateTimeOffset.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
             return $"{timestamp}|{ballId}|{positionX:F4}|{positionY:F4}|{velocityX:F4}|{velocityY:F4}|{mass:F4}|{radius:F4}";
         }
 
