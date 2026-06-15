@@ -6,5 +6,15 @@
   "expectedPackageFiles": [
     "C:\\Users\\jmatu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\obj\\project.nuget.cache: '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\Data\\Data.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

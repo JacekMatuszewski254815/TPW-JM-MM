@@ -69,7 +69,7 @@ namespace TP.ConcurrentProgramming.BusinessLogic
             }
         }
 
-        public void LogBallState(int ballId, double positionX, double positionY,
+        public void LogBallState(int ballId, double positionX, double positionY, 
             double velocityX, double velocityY, double mass, double radius)
         {
             if (!IsEnabled || _isDisposed)
@@ -82,7 +82,7 @@ namespace TP.ConcurrentProgramming.BusinessLogic
                     if (!_isEnabled)
                         return;
 
-                    string serializedData = SerializeBallState(ballId, positionX, positionY,
+                    string serializedData = SerializeBallState(ballId, positionX, positionY, 
                         velocityX, velocityY, mass, radius);
                     _writeQueue.Enqueue(serializedData);
 
@@ -143,7 +143,7 @@ namespace TP.ConcurrentProgramming.BusinessLogic
                 await _writeSemaphore.WaitAsync();
                 try
                 {
-                    using (FileStream fs = new FileStream(_filePath, FileMode.Append,
+                    using (FileStream fs = new FileStream(_filePath, FileMode.Append, 
                         FileAccess.Write, FileShare.Read, 4096, useAsync: true))
                     {
                         using (StreamWriter writer = new StreamWriter(fs, Encoding.ASCII))

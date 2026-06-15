@@ -22,5 +22,15 @@
     "C:\\Users\\jmatu\\.nuget\\packages\\system.reactive\\6.0.1\\system.reactive.6.0.1.nupkg.sha512",
     "C:\\Users\\jmatu\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\obj\\project.nuget.cache: '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\PresentationModelTest.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\PresentationModelTest\\PresentationModelTest.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

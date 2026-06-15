@@ -18,7 +18,6 @@ namespace TP.ConcurrentProgramming.Data
         private IVector _position;
         private IVector _velocity;
 
-        // Każda kulka ma swój własny mechanizm czasowy
         private readonly ITimerService _timerService;
         private readonly IDisposable _timerSubscription;
 
@@ -46,7 +45,6 @@ namespace TP.ConcurrentProgramming.Data
             Mass = mass;
             Radius = radius;
 
-            // Tworzymy i uruchamiamy serwis czasowy DLA TEJ KONKRETNEJ KULKI
             _timerService = new TimerService();
             _timerSubscription = _timerService.Subscribe(new BallTimeObserver(this));
             _timerService.Start();
@@ -71,8 +69,6 @@ namespace TP.ConcurrentProgramming.Data
             _timerSubscription?.Dispose();
             _timerService?.Dispose();
         }
-
-        // Prywatny obserwator wewnątrz kulki, aby ukryć implementację przed światem zewnętrznym
         private class BallTimeObserver : IObserver<TimingData>
         {
             private readonly Ball _ball;
