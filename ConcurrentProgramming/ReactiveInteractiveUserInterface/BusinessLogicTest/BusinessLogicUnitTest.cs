@@ -120,24 +120,20 @@ namespace TP.ConcurrentProgramming.BusinessLogic.Test
 
 
         [TestMethod]
-        public async Task Logger_ShouldCreateHeaderAndFormatDataCorrectly_WithAscii()
+        public async Task Logger_FormatWithAscii()
         {
-            // Arrange
             string tempFilePath = Path.Combine(Path.GetTempPath(), $"ball_diagnostics_test_{Guid.NewGuid()}.log");
 
             try
             {
-                // Act
                 using (var logger = new BallDiagnosticsLogger(tempFilePath, bufferSize: 5))
                 {
                     logger.LogBallState(1, 10.12345, 20.67891, 1.5, -2.5, 5.0, 10.0);
                     await logger.FlushAsync();
-                } // <--- TUTAJ logger się disposuje, zamyka wątek tła i całkowicie zwalnia plik
+                }
 
-                // Assert
                 Assert.IsTrue(File.Exists(tempFilePath), "Plik logu nie został utworzony.");
 
-                // Bezpieczny odczyt – nikt już nie blokuje pliku
                 string[] lines = await File.ReadAllLinesAsync(tempFilePath, Encoding.ASCII);
 
                 Assert.IsTrue(lines.Length >= 2, $"Plik powinien zawierać co najmniej 2 linie, a ma: {lines.Length}");
@@ -163,20 +159,17 @@ namespace TP.ConcurrentProgramming.BusinessLogic.Test
         [TestMethod]
         public async Task Logger_ShouldNotLog_WhenDisabled()
         {
-            // Arrange
             string tempFilePath = Path.Combine(Path.GetTempPath(), $"ball_diagnostics_disabled_test_{Guid.NewGuid()}.log");
 
             try
             {
-                // Act
                 using (var logger = new BallDiagnosticsLogger(tempFilePath, bufferSize: 10))
                 {
-                    logger.IsEnabled = false; // Wyłączamy logger
+                    logger.IsEnabled = false;
                     logger.LogBallState(1, 10, 10, 1, 1, 5, 10);
                     await logger.FlushAsync();
-                } // <--- Zamknięcie pliku
+                }
 
-                // Assert
                 string[] lines = await File.ReadAllLinesAsync(tempFilePath, Encoding.ASCII);
                 Assert.AreEqual(1, lines.Length, "Logger zapisał dane pomimo wyłączenia (IsEnabled = false).");
             }
