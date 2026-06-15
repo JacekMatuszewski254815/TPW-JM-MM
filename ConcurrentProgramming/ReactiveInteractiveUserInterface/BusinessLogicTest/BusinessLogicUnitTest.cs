@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TP.ConcurrentProgramming.BusinessLogic.Test
 {
@@ -67,7 +68,6 @@ namespace TP.ConcurrentProgramming.BusinessLogic.Test
             }
         }
 
-
         private class CollisionDataMock : Data.DataAbstractAPI
         {
             public FakeCollisionBall FirstBall { get; } = new FakeCollisionBall();
@@ -85,6 +85,13 @@ namespace TP.ConcurrentProgramming.BusinessLogic.Test
                 public double Radius => 10.0;
                 public event EventHandler<Data.IVector>? NewPositionNotification;
                 public void RaiseNewPosition() => NewPositionNotification?.Invoke(this, Position);
+                public void UpdatePosition(double deltaTime) 
+                { 
+                    Position = new Data.Vector(
+                        Position.x + Velocity.x * deltaTime,
+                        Position.y + Velocity.y * deltaTime
+                    );
+                }
                 public void Dispose() { }
             }
         }
@@ -107,6 +114,78 @@ namespace TP.ConcurrentProgramming.BusinessLogic.Test
             public override void Dispose()
             {
                 DisposedCalled = true;
+            }
+        }
+
+
+
+        [TestMethod]
+        public async Task Logger_ShouldCreateHeaderAndFormatDataCorrectly_WithAscii()
+        {
+            // Arrange
+            string tempFilePath = Path.Combine(Path.GetTempPath(), $"ball_diagnostics_test_{Guid.NewGuid()}.log");
+
+            try
+            {
+                // Act
+                using (var logger = new BallDiagnosticsLogger(tempFilePath, bufferSize: 5))
+                {
+                    logger.LogBallState(1, 10.12345, 20.67891, 1.5, -2.5, 5.0, 10.0);
+                    await logger.FlushAsync();
+                } // <--- TUTAJ logger się disposuje, zamyka wątek tła i całkowicie zwalnia plik
+
+                // Assert
+                Assert.IsTrue(File.Exists(tempFilePath), "Plik logu nie został utworzony.");
+
+                // Bezpieczny odczyt – nikt już nie blokuje pliku
+                string[] lines = await File.ReadAllLinesAsync(tempFilePath, Encoding.ASCII);
+
+                Assert.IsTrue(lines.Length >= 2, $"Plik powinien zawierać co najmniej 2 linie, a ma: {lines.Length}");
+
+                string expectedHeader = "Timestamp|BallId|PositionX|PositionY|VelocityX|VelocityY|Mass|Radius";
+                Assert.AreEqual(expectedHeader, lines[0], "Nagłówek pliku logu jest nieprawidłowy.");
+
+                string[] parts = lines[1].Split('|');
+                Assert.AreEqual(8, parts.Length, "Linia danych nie zawiera 8 kolumn rozdzielonych znakiem '|'.");
+                Assert.AreEqual("1", parts[1], "Nieprawidłowe BallId.");
+                Assert.AreEqual("10.1235", parts[2], "Nieprawidłowy format PositionX (oczekiwano F4).");
+                Assert.AreEqual("20.6789", parts[3], "Nieprawidłowy format PositionY (oczekiwano F4).");
+            }
+            finally
+            {
+                if (File.Exists(tempFilePath))
+                {
+                    try { File.Delete(tempFilePath); } catch { }
+                }
+            }
+        }
+
+        [TestMethod]
+        public async Task Logger_ShouldNotLog_WhenDisabled()
+        {
+            // Arrange
+            string tempFilePath = Path.Combine(Path.GetTempPath(), $"ball_diagnostics_disabled_test_{Guid.NewGuid()}.log");
+
+            try
+            {
+                // Act
+                using (var logger = new BallDiagnosticsLogger(tempFilePath, bufferSize: 10))
+                {
+                    logger.IsEnabled = false; // Wyłączamy logger
+                    logger.LogBallState(1, 10, 10, 1, 1, 5, 10);
+                    await logger.FlushAsync();
+                } // <--- Zamknięcie pliku
+
+                // Assert
+                string[] lines = await File.ReadAllLinesAsync(tempFilePath, Encoding.ASCII);
+                Assert.AreEqual(1, lines.Length, "Logger zapisał dane pomimo wyłączenia (IsEnabled = false).");
+            }
+            finally
+            {
+                if (File.Exists(tempFilePath))
+                {
+                    try { File.Delete(tempFilePath); } catch { }
+                }
             }
         }
 

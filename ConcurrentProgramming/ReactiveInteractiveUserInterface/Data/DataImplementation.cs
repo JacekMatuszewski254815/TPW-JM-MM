@@ -13,12 +13,15 @@ namespace TP.ConcurrentProgramming.Data
             double radius = 10.0;
             double mass = 5.0;
 
+            const double velocityScale = 60.0;
+
             for (int i = 0; i < ballsCount; i++)
             {
                 double x = _random.NextDouble() * (width - 2 * radius) + radius;
                 double y = _random.NextDouble() * (height - 2 * radius) + radius;
-                double vx = (_random.NextDouble() * 2 - 1) * 3;
-                double vy = (_random.NextDouble() * 2 - 1) * 3;
+
+                double vx = (_random.NextDouble() * 2 - 1) * 3 * velocityScale;
+                double vy = (_random.NextDouble() * 2 - 1) * 3 * velocityScale;
 
                 _balls.Add(new Ball(new Vector(x, y), new Vector(vx, vy), mass, radius));
             }

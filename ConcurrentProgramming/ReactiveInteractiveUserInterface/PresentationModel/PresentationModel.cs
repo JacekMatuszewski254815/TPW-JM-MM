@@ -17,6 +17,7 @@ namespace TP.ConcurrentProgramming.Presentation.Model
 
         public override void Start(int numberOfBalls)
         {
+            _layerBelow.EnableDiagnostics();
 
             _layerBelow.Start(395, 400, numberOfBalls);
 

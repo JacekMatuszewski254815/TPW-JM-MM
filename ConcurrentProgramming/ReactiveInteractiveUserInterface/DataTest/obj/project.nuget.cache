@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KgCV7Q6NISw=",
+  "dgSpecHash": "qhS/vK1beUo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jmatu\\Source\\Repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj",
+  "projectFilePath": "C:\\Users\\jmatu\\source\\repos\\TPW-JM-MM\\ConcurrentProgramming\\ReactiveInteractiveUserInterface\\DataTest\\DataTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jmatu\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\jmatu\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",

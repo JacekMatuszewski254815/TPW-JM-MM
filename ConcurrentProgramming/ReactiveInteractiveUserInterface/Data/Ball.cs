@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 
 namespace TP.ConcurrentProgramming.Data
 {
@@ -10,25 +9,18 @@ namespace TP.ConcurrentProgramming.Data
         IVector Velocity { get; set; }
         double Mass { get; }
         double Radius { get; }
+        void UpdatePosition(double deltaTime);
     }
 
     internal class Ball : IBall
     {
-        private bool _isRunning = true;
-        private Task _movementTask;
         private readonly object _lockObject = new object();
         private IVector _position;
         private IVector _velocity;
 
-        internal Ball(Vector initialPosition, Vector initialVelocity, double mass, double radius)
-        {
-            _position = initialPosition;
-            _velocity = initialVelocity;
-            Mass = mass;
-            Radius = radius;
-
-            _movementTask = Task.Run(MoveLoop);
-        }
+        // Każda kulka ma swój własny mechanizm czasowy
+        private readonly ITimerService _timerService;
+        private readonly IDisposable _timerSubscription;
 
         public event EventHandler<IVector>? NewPositionNotification;
 
@@ -47,25 +39,51 @@ namespace TP.ConcurrentProgramming.Data
         public double Mass { get; init; }
         public double Radius { get; init; }
 
-        private async Task MoveLoop()
+        internal Ball(Vector initialPosition, Vector initialVelocity, double mass, double radius)
         {
-            while (_isRunning)
+            _position = initialPosition;
+            _velocity = initialVelocity;
+            Mass = mass;
+            Radius = radius;
+
+            // Tworzymy i uruchamiamy serwis czasowy DLA TEJ KONKRETNEJ KULKI
+            _timerService = new TimerService();
+            _timerSubscription = _timerService.Subscribe(new BallTimeObserver(this));
+            _timerService.Start();
+        }
+
+        public void UpdatePosition(double deltaTime)
+        {
+            if (deltaTime <= 0) return;
+
+            lock (_lockObject)
             {
-                lock (_lockObject)
-                {
-                    _position = new Vector(_position.x + _velocity.x, _position.y + _velocity.y);
-                }
-
-                NewPositionNotification?.Invoke(this, Position);
-
-                await Task.Delay(16);
+                double newX = _position.x + (_velocity.x * deltaTime);
+                double newY = _position.y + (_velocity.y * deltaTime);
+                _position = new Vector(newX, newY);
             }
+
+            NewPositionNotification?.Invoke(this, Position);
         }
 
         public void Dispose()
         {
-            _isRunning = false;
-            try { _movementTask.Wait(); } catch { }
+            _timerSubscription?.Dispose();
+            _timerService?.Dispose();
+        }
+
+        // Prywatny obserwator wewnątrz kulki, aby ukryć implementację przed światem zewnętrznym
+        private class BallTimeObserver : IObserver<TimingData>
+        {
+            private readonly Ball _ball;
+            public BallTimeObserver(Ball ball) => _ball = ball;
+
+            public void OnNext(TimingData value)
+            {
+                _ball.UpdatePosition(value.DeltaTime);
+            }
+            public void OnError(Exception error) { }
+            public void OnCompleted() { }
         }
     }
 }
